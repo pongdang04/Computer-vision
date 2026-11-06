@@ -1,0 +1,10 @@
+se,operation,foreground_pixels
+-,original,293
+vertical,dilation,421
+vertical,erosion,184
+horizontal,dilation,425
+horizontal,erosion,180
+square,dilation,593
+square,erosion,115
+cross,dilation,521
+cross,erosion,123

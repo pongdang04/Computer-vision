@@ -1,0 +1,8 @@
+image,psnr_vs_image1,psnr_vs_image2
+image2,12.60,inf
+add,12.54,45.89
+subtract,45.93,12.54
+multiply,13.82,16.25
+divide,45.97,12.54
+add_wrap,12.55,36.11
+subtract_wrap,0.85,1.21
