@@ -1,0 +1,7 @@
+.DS_Store
+.venv/
+.python/
+__pycache__/
+**/results/cache/
+*.pdf
+install.sh

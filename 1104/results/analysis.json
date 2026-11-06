@@ -1,0 +1,144 @@
+{
+  "prediction_share_fold1": {
+    "l1_k1": {
+      "top3_share": 0.4749,
+      "most_predicted": "deer",
+      "least_predicted_count": 431
+    },
+    "l1_k5": {
+      "top3_share": 0.5254,
+      "most_predicted": "deer",
+      "least_predicted_count": 330
+    },
+    "l1_k21": {
+      "top3_share": 0.5978,
+      "most_predicted": "deer",
+      "least_predicted_count": 280
+    },
+    "l1_k101": {
+      "top3_share": 0.6427,
+      "most_predicted": "deer",
+      "least_predicted_count": 181
+    },
+    "l2_k1": {
+      "top3_share": 0.5112,
+      "most_predicted": "deer",
+      "least_predicted_count": 307
+    },
+    "l2_k5": {
+      "top3_share": 0.5745,
+      "most_predicted": "deer",
+      "least_predicted_count": 234
+    },
+    "l2_k21": {
+      "top3_share": 0.6513,
+      "most_predicted": "deer",
+      "least_predicted_count": 146
+    },
+    "l2_k101": {
+      "top3_share": 0.7063,
+      "most_predicted": "deer",
+      "least_predicted_count": 85
+    },
+    "cosine_k1": {
+      "top3_share": 0.4457,
+      "most_predicted": "ship",
+      "least_predicted_count": 428
+    },
+    "cosine_k5": {
+      "top3_share": 0.4844,
+      "most_predicted": "ship",
+      "least_predicted_count": 329
+    },
+    "cosine_k21": {
+      "top3_share": 0.5417,
+      "most_predicted": "ship",
+      "least_predicted_count": 256
+    },
+    "cosine_k101": {
+      "top3_share": 0.6002,
+      "most_predicted": "ship",
+      "least_predicted_count": 164
+    },
+    "linf_k1": {
+      "top3_share": 0.6556,
+      "most_predicted": "ship",
+      "least_predicted_count": 32
+    },
+    "linf_k5": {
+      "top3_share": 0.7157,
+      "most_predicted": "ship",
+      "least_predicted_count": 9
+    },
+    "linf_k21": {
+      "top3_share": 0.8558,
+      "most_predicted": "ship",
+      "least_predicted_count": 0
+    },
+    "linf_k101": {
+      "top3_share": 0.9334,
+      "most_predicted": "deer",
+      "least_predicted_count": 0
+    }
+  },
+  "fold_accuracy": {
+    "l1": [
+      0.3776,
+      0.3773,
+      0.3844,
+      0.3877,
+      0.3864
+    ],
+    "l2": [
+      0.3377,
+      0.3404,
+      0.3486,
+      0.3518,
+      0.3452
+    ],
+    "cosine": [
+      0.3644,
+      0.3696,
+      0.3716,
+      0.3677,
+      0.3741
+    ],
+    "linf": [
+      0.1749,
+      0.1749,
+      0.1721,
+      0.177,
+      0.181
+    ]
+  },
+  "l1_beats_cosine_folds": 5,
+  "cosine_beats_l2_folds": 5,
+  "ties_at_nearest_distance": {
+    "l1": {
+      "median_tied": 1.0,
+      "max_tied": 1
+    },
+    "linf": {
+      "median_tied": 1.0,
+      "max_tied": 4
+    }
+  },
+  "linf_distance_percentiles": [
+    149.0,
+    217.0,
+    255.0
+  ],
+  "linf_distinct_values_median": 107.5,
+  "test_predicted_counts": {
+    "airplane": 1209,
+    "automobile": 386,
+    "bird": 1577,
+    "cat": 690,
+    "deer": 1960,
+    "dog": 728,
+    "frog": 930,
+    "horse": 488,
+    "ship": 1623,
+    "truck": 409
+  }
+}

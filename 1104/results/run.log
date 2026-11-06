@@ -1,0 +1,39 @@
+fold 1/5
+  fold1 l1: 117.4s
+  fold1 l2: 8.9s
+  fold1 cosine: 8.8s
+  fold1 linf: 118.4s
+fold 2/5
+  fold2 l1: 133.1s
+  fold2 l2: 8.8s
+  fold2 cosine: 8.8s
+  fold2 linf: 129.5s
+fold 3/5
+  fold3 l1: 149.9s
+  fold3 l2: 8.7s
+  fold3 cosine: 8.8s
+  fold3 linf: 141.3s
+fold 4/5
+  fold4 l1: 158.7s
+  fold4 l2: 8.8s
+  fold4 cosine: 8.3s
+  fold4 linf: 149.1s
+fold 5/5
+  fold5 l1: 164.7s
+  fold5 l2: 8.6s
+  fold5 cosine: 8.3s
+  fold5 linf: 153.7s
+    metric  k  accuracy_mean  precision_mean  recall_mean   f1_mean
+2   cosine  5        0.36948        0.423440      0.36948  0.361395
+13      l1  5        0.38268        0.448654      0.38268  0.378071
+23      l2  3        0.34474        0.409492      0.34474  0.335991
+33    linf  1        0.17598        0.251574      0.17598  0.139694
+  test cosine: 11.3s
+  test l1: 209.7s
+  test l2: 11.2s
+  test linf: 199.6s
+   metric  k  accuracy  precision  recall        f1     seconds
+0  cosine  5    0.3797   0.433167  0.3797  0.372161   11.282255
+1      l1  5    0.3921   0.455988  0.3921  0.389036  209.677011
+2      l2  3    0.3561   0.420418  0.3561  0.349758   11.153122
+3    linf  1    0.1828   0.285694  0.1828  0.146553  199.619285
