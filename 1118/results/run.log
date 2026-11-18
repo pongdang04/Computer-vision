@@ -50,6 +50,20 @@ prediction counts on the test set: airplane=0, automobile=2, bird=0, cat=0, deer
 sum of each class's weights: airplane=-0.00704, automobile=+0.00181, bird=-0.00112, cat=-0.01054, deer=+0.00225, dog=+0.01197, frog=+0.01209, horse=+0.00923, ship=+0.01217, truck=-0.00296
 corr(score, mean pixel * sum(w_j)) over all test scores: 0.9511
 
+per true class over the whole test set
+class       n     correct  svm_loss  softmax_loss  p_true    top predictions
+airplane    1000  0          9.0515        2.3077  0.09949   dog=402 ship=382 frog=169
+automobile  1000  1          8.9993        2.3025  0.10001   frog=435 ship=265 dog=220
+bird        1000  0          9.0175        2.3043  0.09982   frog=480 dog=270 ship=223
+cat         1000  0          9.0608        2.3087  0.09939   frog=409 ship=298 dog=204
+deer        1000  0          9.0033        2.3029  0.09997   frog=591 ship=210 dog=177
+dog         1000  156        8.9575        2.2983  0.10043   frog=442 ship=354 dog=156
+frog        1000  651        8.9511        2.2977  0.10049   frog=651 ship=170 dog=129
+horse       1000  41         8.9683        2.2994  0.10032   frog=356 ship=323 dog=279
+ship        1000  344        8.9516        2.2978  0.10048   dog=414 ship=344 frog=208
+truck       1000  0          9.0399        2.3066  0.09960   ship=363 dog=316 frog=237
+all         10000 1193       9.0001        2.3026
+
 correlation between W_c and the class-c mean image: airplane=+0.0260, automobile=+0.0236, bird=+0.0016, cat=-0.0112, deer=-0.0130, dog=-0.0091, frog=+0.0445, horse=+0.0000, ship=-0.0012, truck=-0.0398
 mean horizontal neighbor-pixel correlation: W rows +0.0072, class mean images +0.9947
 

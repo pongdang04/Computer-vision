@@ -125,6 +125,29 @@ def main(archive):
     # Correct test images per class, used as extra examples if few among the 10.
     extra = [int(i) for i in np.flatnonzero(pred_all == y_all) if i not in set(idx.tolist())][:5]
 
+    # Per true class over the whole test set (1,000 images each).
+    P_all = lc.softmax(S_all)
+    Ls_all = lc.svm_loss_per_example(S_all, y_all, DELTA)
+    Lc_all = lc.cross_entropy_per_example(P_all, y_all)
+    log("\nper true class over the whole test set")
+    log("class       n     correct  svm_loss  softmax_loss  p_true    top predictions")
+    per_class_rows = []
+    for c in range(10):
+        m = y_all == c
+        cnt = np.bincount(pred_all[m], minlength=10)
+        top = [t for t in np.argsort(-cnt, kind="stable")[:3] if cnt[t] > 0]
+        top_str = " ".join(f"{names[t]}={cnt[t]}" for t in top)
+        row = [names[c], int(m.sum()), int(cnt[c]), Ls_all[m].mean(), Lc_all[m].mean(),
+               P_all[m, c].mean(), top_str]
+        per_class_rows.append(row)
+        log(f"{row[0]:<11} {row[1]:<5} {row[2]:<8} {row[3]:8.4f}  {row[4]:12.4f}  "
+            f"{row[5]:.5f}   {top_str}")
+    log(f"{'all':<11} {len(y_all):<5} {hits_all:<8} {Ls_all.mean():8.4f}  {Lc_all.mean():12.4f}")
+    write_csv(os.path.join(RES, "per_class.csv"),
+              ["true_class", "n", "correct", "svm_loss", "softmax_loss", "p_true", "top_predictions"],
+              [[r_[0], r_[1], r_[2], f"{r_[3]:.6f}", f"{r_[4]:.6f}", f"{r_[5]:.6f}", r_[6]]
+               for r_ in per_class_rows])
+
     # 6. Weight images ------------------------------------------------------
     means = np.stack([X_all[y_all == c].mean(axis=0) for c in range(10)])
     corr_wm = [float(np.corrcoef(W[c], means[c])[0, 1]) for c in range(10)]

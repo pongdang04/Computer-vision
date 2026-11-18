@@ -145,6 +145,28 @@ The direction of W is the same in every row, so predictions do not change. With 
 - The largest weight sums belong to ship (+0.0122), frog (+0.0121), dog (+0.0120) and horse (+0.0092); the smallest to cat (−0.0105) and airplane (−0.0070). So frog, ship and dog score high **for any input image**.
 - The frog and ship images are therefore correct not because the model recognized a frog or a ship, but because images of those classes were fed into a W that is already tilted toward them. Conversely, an airplane or cat image can never be classified correctly with this W. (Zero-centering the data by subtracting the mean image would reduce this bias; the preprocessing here only scales to [0, 1].)
 
+**Summary per true class** (whole test set, 1,000 images per class, `results/per_class.csv`)
+
+The 10 examples above use only one image per class and could be a matter of luck, so the same W was applied to the whole test set and grouped by true class (for interpretation, not as an evaluation metric). The label of the dog class is 5; class names and label indices are read from the dataset's `batches.meta`.
+
+| True class (label) | Correct / 1000 | Mean SVM loss | Mean softmax loss | Mean p(true class) | Most frequent predictions |
+|---|---|---|---|---|---|
+| airplane (0) | 0 | 9.0515 | 2.3077 | 0.09949 | dog 402, ship 382, frog 169 |
+| automobile (1) | 1 | 8.9993 | 2.3025 | 0.10001 | frog 435, ship 265, dog 220 |
+| bird (2) | 0 | 9.0175 | 2.3043 | 0.09982 | frog 480, dog 270, ship 223 |
+| cat (3) | 0 | 9.0608 | 2.3087 | 0.09939 | frog 409, ship 298, dog 204 |
+| deer (4) | 0 | 9.0033 | 2.3029 | 0.09997 | frog 591, ship 210, dog 177 |
+| dog (5) | 156 | 8.9575 | 2.2983 | 0.10043 | frog 442, ship 354, dog 156 |
+| frog (6) | **651** | 8.9511 | 2.2977 | 0.10049 | frog 651, ship 170, dog 129 |
+| horse (7) | 41 | 8.9683 | 2.2994 | 0.10032 | frog 356, ship 323, dog 279 |
+| ship (8) | **344** | 8.9516 | 2.2978 | 0.10048 | dog 414, ship 344, frog 208 |
+| truck (9) | 0 | 9.0399 | 2.3066 | 0.09960 | ship 363, dog 316, frog 237 |
+| **All** | **1,193** | **9.0001** | **2.3026** | | |
+
+- **Losses are nearly identical across classes:** SVM loss 8.95–9.06 (≈ 9), softmax loss 2.298–2.309 (≈ ln 10).
+- **Correct counts differ greatly by class:** frog 651, ship 344, dog 156, horse 41, and 0–1 for the other six classes. The classes that get hits are exactly the four with the largest weight sums (ship, frog, dog, horse).
+- **Whatever the true class, the top three predictions are frog, ship and dog.** The model is tilted the same way regardless of image content, which is the same conclusion as the frog and ship hits among the 10 examples.
+
 ## 8. Weight visualization
 
 ![Weight images](figures/weights.png)
@@ -177,6 +199,7 @@ python run.py <path to cifar-10-python.tar.gz>           # full experiment + fig
 | `test_linear.py` | implementation checks |
 | `results/run.log` | full console output |
 | `results/scores.csv`, `probabilities.csv`, `losses.csv` | scores, probabilities and losses of the 10 examples |
+| `results/per_class.csv` | per-true-class summary over the whole test set |
 | `results/weight_scale.csv` | supplementary weight-scale experiment |
 | `results/summary.json` | key numbers |
 | `figures/*.png` | four figures |
