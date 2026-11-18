@@ -9,5 +9,6 @@
 | 9/29 | [Opening / Closing](0929/assignment1/) | [README](0929/assignment1/README.md) |
 | 10/28 | [kNN on CIFAR-10](1028/assignment1/) | |
 | 11/4 | [KNN on CIFAR-10](1104/) | [한국어](1104/report_ko.md) · [English](1104/report.md) |
+| 11/18 | [Linear Classifier on CIFAR-10](1118/) | [한국어](1118/report_ko.md) · [English](1118/report.md) |
 
 > 10/28 과제의 CIFAR-10 데이터는 저장소에 포함하지 않았습니다. `knn_cifar10.py` 실행 시 `data/` 폴더로 자동 다운로드됩니다.
